@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BioKnowledge — База знаний по биологии</title>
+  <style>
+    :root{
+      --bg:#f5fbf8;
+      --bg-2:#eef8f3;
+      --card:#ffffff;
+      --text:#18332a;
+      --muted:#5c7b70;
+      --line:#d9ebe1;
+      --green:#39a96b;
+      --green-dark:#1f7a4f;
+      --teal:#2b8a8f;
+      --accent:#dff5e7;
+      --shadow:0 12px 35px rgba(30, 80, 56, 0.10);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(74,184,125,.14), transparent 22%),
+        radial-gradient(circle at left 20%, rgba(43,138,143,.10), transparent 18%),
+        linear-gradient(180deg, #f8fcfa 0%, #f0f8f4 100%);
+    }
+
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px, calc(100% - 40px)); margin:0 auto}
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background:rgba(248,252,250,0.78);
+      border-bottom:1px solid rgba(217,235,225,.8);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.08rem;
+    }
+    .brand-badge{
+      width:42px; height:42px; border-radius:14px;
+      background:linear-gradient(135deg, var(--green), var(--teal));
+      display:grid; place-items:center; color:white; font-size:22px;
+      box-shadow: var(--shadow);
+    }
+    .nav-links{
+      display:flex; gap:24px; color:var(--muted); font-size:.96rem;
+    }
+    .nav-actions{
+      display:flex; gap:12px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:13px 20px; border-radius:999px; border:1px solid transparent;
+      font-weight:700; transition:.2s ease;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg, var(--green), var(--green-dark));
+      color:white; box-shadow:0 10px 24px rgba(57,169,107,.24);
+    }
+    .btn-secondary{
+      background:white; border-color:var(--line); color:var(--text);
+    }
+
+    .hero{
+      padding:48px 0 28px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-card{
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(217,235,225,.85);
+      box-shadow: var(--shadow);
+      border-radius:32px;
+      padding:38px;
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      background:#eaf8f0; color:var(--green-dark);
+      border:1px solid #d5efe0;
+      padding:9px 14px; border-radius:999px;
+      font-size:.92rem; font-weight:700;
+      margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 16px;
+      font-size:clamp(2.1rem, 5vw, 4.2rem);
+      line-height:1.02;
+      letter-spacing:-0.03em;
+    }
+    .lead{
+      margin:0 0 26px;
+      color:var(--muted);
+      font-size:1.08rem;
+      line-height:1.65;
+      max-width:58ch;
+    }
+    .search{
+      display:flex; gap:12px; padding:12px;
+      background:white; border:1px solid var(--line);
+      border-radius:22px; box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+      margin-bottom:18px;
+    }
+    .search input{
+      flex:1; border:none; outline:none; font-size:1rem; background:transparent; color:var(--text);
+      padding:6px 6px 6px 10px;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:12px; margin-bottom:22px;
+    }
+    .hero-stats{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
+    }
+    .stat{
+      background:var(--bg);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px 16px;
+    }
+    .stat strong{
+      display:block; font-size:1.35rem; margin-bottom:5px;
+    }
+    .stat span{
+      color:var(--muted); font-size:.92rem;
+    }
+
+    .visual{
+      position:relative;
+      min-height:620px;
+      border-radius:32px;
+      padding:28px;
+      background:
+        radial-gradient(circle at top left, rgba(57,169,107,.20), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(43,138,143,.16), transparent 30%),
+        linear-gradient(180deg, #f6fcf8, #eaf7f0);
+      border:1px solid rgba(217,235,225,.9);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .blob{
+      position:absolute; border-radius:50%;
+      filter: blur(8px); opacity:.55;
+    }
+    .blob.one{width:180px;height:180px;background:#c7f0d6; right:-30px; top:-20px;}
+    .blob.two{width:160px;height:160px;background:#c8edf0; left:-40px; bottom:90px;}
+    .panel{
+      position:absolute; background:rgba(255,255,255,.92);
+      border:1px solid rgba(217,235,225,.95);
+      box-shadow: var(--shadow);
+      border-radius:24px;
+    }
+    .panel.main{
+      inset:78px 48px 98px 48px;
+      padding:26px;
+    }
+    .panel.small{
+      padding:18px 20px;
+      width:240px;
+    }
+    .p-top{top:24px; left:28px;}
+    .p-bottom{bottom:26px; right:26px;}
+    .mini-label{
+      font-size:.82rem; color:var(--muted); margin-bottom:6px;
+    }
+    .dna{
+      width:100%; height:170px; border-radius:22px; position:relative;
+      background:linear-gradient(180deg, #f3fbf6, #edf8f1);
+      border:1px solid var(--line);
+      overflow:hidden; margin-bottom:18px;
+    }
+    .helix{
+      position:absolute; width:48%; height:180px; top:-8px;
+      border-radius:999px;
+      border:5px solid transparent;
+    }
+    .helix.left{left:16%; border-left-color:var(--green); border-right-color:var(--green);}
+    .helix.right{right:16%; border-left-color:var(--teal); border-right-color:var(--teal);}
+    .rung{
+      position:absolute; left:18%; right:18%; height:3px;
+      background:linear-gradient(90deg, var(--green), var(--teal));
+      border-radius:999px;
+      opacity:.8;
+    }
+    .bio-icons{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+    }
+    .bio-icon{
+      background:var(--bg);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px 10px;
+      text-align:center;
+      font-size:1.7rem;
+    }
+    .bio-icon span{
+      display:block; font-size:.83rem; color:var(--muted); margin-top:8px;
+    }
+
+    section{padding:26px 0}
+    .section-head{
+      display:flex; justify-content:space-between; gap:20px; align-items:end;
+      margin-bottom:18px;
+    }
+    .section-head h2{
+      margin:0 0 8px; font-size:2rem; letter-spacing:-0.02em;
+    }
+    .section-head p{
+      margin:0; color:var(--muted); max-width:60ch; line-height:1.6;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .card{
+      background:rgba(255,255,255,.85);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:22px;
+      box-shadow: var(--shadow);
+      min-height:220px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card .icon{
+      width:58px; height:58px; border-radius:18px;
+      display:grid; place-items:center;
+      font-size:1.7rem;
+      background:linear-gradient(135deg, #effaf3, #e8f6f7);
+      border:1px solid var(--line);
+      margin-bottom:16px;
+    }
+    .card h3{margin:0 0 10px; font-size:1.15rem}
+    .card p{margin:0; color:var(--muted); line-height:1.55; font-size:.95rem}
+    .chip{
+      position:absolute; right:18px; bottom:18px;
+      font-size:.8rem; color:var(--green-dark);
+      background:#eefaf2; border:1px solid #d8efdf;
+      padding:8px 10px; border-radius:999px; font-weight:700;
+    }
+
+    .feature-grid{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:20px;
+    }
+    .feature-large, .feature-stack > div{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow: var(--shadow);
+    }
+    .feature-large{
+      padding:28px;
+      display:grid; grid-template-columns:1fr 220px; gap:18px; align-items:center;
+    }
+    .feature-stack{
+      display:grid; gap:20px;
+    }
+    .feature-stack > div{padding:24px;}
+    .illustration-box{
+      height:190px; border-radius:26px; border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 30% 35%, rgba(57,169,107,.28), transparent 18%),
+        radial-gradient(circle at 65% 45%, rgba(43,138,143,.20), transparent 16%),
+        linear-gradient(180deg, #f2faf5, #e9f5ef);
+      position:relative; overflow:hidden;
+    }
+    .leaf, .cell{
+      position:absolute; border-radius:50%;
+    }
+    .leaf{
+      width:72px; height:120px; background:linear-gradient(180deg,#67c588,#2f995f);
+      border-radius:70% 10% 70% 10%;
+      transform:rotate(35deg);
+      top:35px; right:60px;
+      box-shadow:0 10px 20px rgba(36,117,74,.15);
+    }
+    .cell{
+      width:70px; height:70px; background:rgba(255,255,255,.72);
+      border:3px solid rgba(43,138,143,.35);
+    }
+    .cell.one{left:28px; top:34px;}
+    .cell.two{left:94px; bottom:26px; width:90px; height:90px;}
+    .cell.three{right:26px; bottom:20px; width:62px; height:62px;}
+
+    .list{
+      display:grid; gap:14px; margin-top:18px;
+    }
+    .list-item{
+      display:flex; gap:14px; align-items:flex-start;
+      background:var(--bg);
+      border:1px solid var(--line);
+      border-radius:18px; padding:14px 16px;
+    }
+    .dot{
+      width:34px; height:34px; border-radius:12px;
+      display:grid; place-items:center;
+      background:white; border:1px solid var(--line);
+      font-size:1.1rem;
+    }
+    .list-item strong{display:block; margin-bottom:4px}
+    .list-item span{color:var(--muted); font-size:.95rem; line-height:1.5}
+
+    .cta{
+      margin:30px 0 10px;
+      background:linear-gradient(135deg, #eaf8f0, #edf8f8);
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:34px;
+      box-shadow: var(--shadow);
+      display:flex; justify-content:space-between; gap:20px; align-items:center;
+    }
+    .cta h3{margin:0 0 8px; font-size:1.8rem}
+    .cta p{margin:0; color:var(--muted); max-width:58ch; line-height:1.6}
+
+    footer{
+      padding:26px 0 40px;
+      color:var(--muted);
+    }
+    .footer-box{
+      display:flex; justify-content:space-between; gap:20px; align-items:center;
+      border-top:1px solid var(--line);
+      padding-top:22px;
+    }
+
+    @media (max-width: 1100px){
+      .hero-grid, .feature-grid, .feature-large{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .visual{min-height:540px}
+      .panel.main{inset:84px 28px 92px 28px;}
+    }
+    @media (max-width: 720px){
+      .nav-links{display:none}
+      .hero-card, .visual, .card, .feature-large, .feature-stack>div, .cta{padding:22px}
+      .cards, .hero-stats{grid-template-columns:1fr}
+      .search{flex-direction:column}
+      .panel.small{position:relative; width:auto}
+      .p-top,.p-bottom{top:auto;left:auto;right:auto;bottom:auto; margin-top:14px}
+      .panel.main{position:relative; inset:auto; margin-top:16px}
+      .visual{min-height:auto; display:flex; flex-direction:column}
+      .bio-icons{grid-template-columns:repeat(2,1fr)}
+      .cta, .footer-box{flex-direction:column; align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge">🧬</div>
+        <div>BioKnowledge</div>
+      </div>
+      <div class="nav-links">
+        <a href="#sections">Разделы</a>
+        <a href="#materials">Материалы</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#">Войти</a>
+        <a class="btn btn-primary" href="#">Начать учиться</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="eyebrow">🌿 Удобная база знаний по биологии</div>
+        <h1>Изучай биологию<br>понятно, красиво и по темам</h1>
+        <p class="lead">
+          Современная образовательная платформа для подготовки к занятиям, экзаменам и повторению материала.
+          Все разделы биологии собраны в одном месте: от цитологии и генетики до экологии и анатомии человека.
+        </p>
+
+        <div class="search">
+          <input
+                  id="questionInput"
+                  type="text"
+                  placeholder="Спроси: что такое митоз, мейоз или клетка"
+          />
+          <button class="btn btn-primary" id="askButton">Найти материал</button>
+          "></div>
+
+        <div id="answerBox" style="
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #eefaf2;
+  border: 1px solid #d8efdf;
+  color: #18332a;
+  display: none;
+          
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#sections">Смотреть разделы</a>
+          <a class="btn btn-secondary" href="#materials">Популярные материалы</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>120+</strong>
+            <span>статей и конспектов</span>
+          </div>
+          <div class="stat">
+            <strong>8</strong>
+            <span>основных разделов</span>
+          </div>
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>доступ к материалам</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual">
+        <div class="blob one"></div>
+        <div class="blob two"></div>
+
+        <div class="panel small p-top">
+          <div class="mini-label">Тема дня</div>
+          <strong>Строение клетки</strong>
+          <div style="color:var(--muted); margin-top:6px;">Органоиды, мембрана, ядро и функции клетки.</div>
+        </div>
+
+        <div class="panel main">
+          <div class="dna">
+            <div class="helix left"></div>
+            <div class="helix right"></div>
+            <div class="rung" style="top:20px;"></div>
+            <div class="rung" style="top:42px;"></div>
+            <div class="rung" style="top:64px;"></div>
+            <div class="rung" style="top:86px;"></div>
+            <div class="rung" style="top:108px;"></div>
+            <div class="rung" style="top:130px;"></div>
+          </div>
+
+          <div class="bio-icons">
+            <div class="bio-icon">🌱<span>Ботаника</span></div>
+            <div class="bio-icon">🦋<span>Зоология</span></div>
+            <div class="bio-icon">🫀<span>Анатомия</span></div>
+            <div class="bio-icon">🔬<span>Генетика</span></div>
+          </div>
+        </div>
+
+        <div class="panel small p-bottom">
+          <div class="mini-label">Популярно</div>
+          <strong>Экология</strong>
+          <div style="color:var(--muted); margin-top:6px;">Цепи питания, биосфера, экологические связи.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="sections">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Разделы биологии</h2>
+          <p>Главные тематические блоки, из которых можно собрать удобную и красивую базу знаний для изучения предмета.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🌿</div>
+          <h3>Ботаника</h3>
+          <p>Растения, ткани, органы, фотосинтез, жизненные циклы и систематика растительного мира.</p>
+          <div class="chip">Растительный мир</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🦉</div>
+          <h3>Зоология</h3>
+          <p>Многообразие животных, типы и классы, особенности строения, поведения и адаптаций.</p>
+          <div class="chip">Животные</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🫀</div>
+          <h3>Анатомия человека</h3>
+          <p>Системы органов, ткани, физиология и основные процессы жизнедеятельности организма человека.</p>
+          <div class="chip">Человек</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧬</div>
+          <h3>Генетика</h3>
+          <p>Наследственность, изменчивость, законы Менделя, ДНК, гены и молекулярные основы жизни.</p>
+          <div class="chip">Наследование</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧫</div>
+          <h3>Цитология</h3>
+          <p>Строение клетки, органоиды, деление клетки, мембраны и обмен веществ на клеточном уровне.</p>
+          <div class="chip">Клетка</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌍</div>
+          <h3>Экология</h3>
+          <p>Экосистемы, пищевые цепи, биосфера, влияние человека на природу и устойчивость среды.</p>
+          <div class="chip">Природа</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🦖</div>
+          <h3>Эволюция</h3>
+          <p>Происхождение жизни, естественный отбор, доказательства эволюции и развитие видов.</p>
+          <div class="chip">Развитие жизни</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🦠</div>
+          <h3>Микробиология</h3>
+          <p>Бактерии, вирусы, грибы и простейшие, их роль в природе, медицине и жизни человека.</p>
+          <div class="chip">Микромир</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="materials">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Популярные материалы</h2>
+          <p>На главной странице можно сразу показывать самые нужные темы, чтобы ученик быстрее находил важное.</p>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-large">
+          <div>
+            <div class="eyebrow" style="margin-bottom:14px;">📘 Подборка недели</div>
+            <h3 style="margin:0 0 10px; font-size:1.65rem;">Полный разбор темы «Клетка и её органоиды»</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.65;">
+              Готовая статья с иллюстрациями, понятными объяснениями и структурой для быстрого повторения.
+              Такой блок можно использовать как выделенный материал на главной странице.
+            </p>
+            <div class="list">
+              <div class="list-item">
+                <div class="dot">🔎</div>
+                <div><strong>Кратко и понятно</strong><span>Сложные темы разбиты на маленькие логичные части.</span></div>
+              </div>
+              <div class="list-item">
+                <div class="dot">📝</div>
+                <div><strong>Подходит для подготовки</strong><span>Можно использовать для повторения перед уроком или экзаменом.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="illustration-box">
+            <div class="leaf"></div>
+            <div class="cell one"></div>
+            <div class="cell two"></div>
+            <div class="cell three"></div>
+          </div>
+        </div>
+
+        <div class="feature-stack">
+          <div>
+            <h3 style="margin:0 0 10px;">🔥 Часто ищут</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">Фотосинтез, митоз и мейоз, кровообращение, биосфера, генотип и фенотип.</p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 10px;">🎯 Для чего сайт</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">Чтобы ученик быстро находил теорию по биологии без путаницы и лишнего текста.</p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 10px;">📚 Форматы материалов</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">Конспекты, схемы, таблицы, тематические карточки и краткие объяснения.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Почему такой дизайн удобен</h2>
+          <p>Макет сделан так, чтобы сайт выглядел дружелюбно, современно и при этом оставался учебным и понятным.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🎨</div>
+          <h3>Спокойная палитра</h3>
+          <p>Белый, мягкий зелёный и бирюзовый вызывают ассоциации с природой, наукой и чистотой интерфейса.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧭</div>
+          <h3>Понятная навигация</h3>
+          <p>Сразу видно, где искать разделы, материалы, кнопки и поиск по темам.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧠</div>
+          <h3>Учебный акцент</h3>
+          <p>Карточки и блоки помогают не перегружать ученика и разбивать информацию на части.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📱</div>
+          <h3>Адаптивность</h3>
+          <p>Макет подстраивается под ноутбук и телефон, поэтому его можно дальше развивать как настоящий сайт.</p>
+        </article>
+      </div>
+
+      <div class="cta">
+        <div>
+          <h3>Готовый визуальный макет главной страницы</h3>
+          <p>Этот вариант уже можно открывать в браузере, показывать преподавателю или передавать фронтендеру как основу для реального сайта.</p>
+        </div>
+        <a class="btn btn-primary" href="#">Открыть каталог тем</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contacts">
+    <div class="container footer-box">
+      <div>
+        <strong>BioKnowledge</strong><br>
+        <span>База знаний по биологии для учёбы, повторения и подготовки.</span>
+      </div>
+      <div>Главная · Разделы · Материалы · Контакты</div>
+    </div>
+  </footer>
+  <script>
+    const API_URL = "http://localhost:5237";
+
+    const questionInput = document.getElementById("questionInput");
+    const askButton = document.getElementById("askButton");
+    const answerBox = document.getElementById("answerBox");
+
+    async function askQuestion() {
+      const question = questionInput.value.trim();
+
+      if (question === "") {
+        answerBox.style.display = "block";
+        answerBox.textContent = "Введите вопрос.";
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_URL}/ask`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            question: question
+          })
+        });
+
+        const answer = await response.text();
+
+        answerBox.style.display = "block";
+        answerBox.textContent = answer;
+      } catch (error) {
+        answerBox.style.display = "block";
+        answerBox.textContent = "Не удалось подключиться к серверу. Проверь, запущен ли бэкенд.";
+        console.error(error);
+      }
+    }
+
+    askButton.addEventListener("click", askQuestion);
+
+    questionInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        askQuestion();
+      }
+    });
+  </script>
+</body>
+</html>
