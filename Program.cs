@@ -1,44 +1,64 @@
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); // создает приложение
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// подключает свагер 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+var app = builder.Build(); // сборка приложения
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(); // Если проект запущен локально, показывать свагер
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // перенаправление на https 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.UseCors("AllowFrontend");
 
-var summaries = new[]
+app.MapGet("/health", () =>  // создаёт endpoint /health
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
+    return "ok";
+});
+app.MapPost("/ask", (AskRequest request) =>
+{
+    var knowledgeBase = new Dictionary<string, string>
     {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
+        { "митоз", "Митоз — это процесс деления клетки, при котором из одной клетки образуются две генетически одинаковые дочерние клетки." },
+        { "мейоз", "Мейоз — это деление клетки, при котором число хромосом уменьшается вдвое." },
+        { "клетка", "Клетка — это элементарная структурная и функциональная единица живого организма." }
+    };
+
+    var question = request.Question.ToLower();
+
+    foreach (var item in knowledgeBase)
+    {
+        if (question.Contains(item.Key))
+        {
+            return Results.Ok(item.Value);
+        }
+    }
+
+    return Results.Ok("Я пока не нашёл ответ в базе знаний.");
+});
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+public class AskRequest
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    public string Question { get; set; } = "";
 }
+
+
+
+
