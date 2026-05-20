@@ -144,6 +144,8 @@
 
 Снаружи находится ризодерма.
 
+![Ризодерма](/pictures/Plant_tissue_images/rhizodermis.png)
+
 Под ней располагается первичная кора:
 
 - экзодерма;
@@ -155,6 +157,10 @@
 - перицикл;
 - ксилема;
 - флоэма.
+
+![Ксилема](/pictures/Plant_tissue_images/xylem.png)
+
+![Флоэма](/pictures/Plant_tissue_images/phloem.png)
 
 ---
 
@@ -205,6 +211,8 @@
 |---|---|---|
 | Расположение пучков | рассеянно | по кругу |
 | Камбий | отсутствует | есть |
+
+![Проводящий пучок](/pictures/Plant_tissue_images/vascular-bundle.png)
 
 ---
 
