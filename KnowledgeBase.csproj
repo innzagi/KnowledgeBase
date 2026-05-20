@@ -11,10 +11,4 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="wwwroot\content\zoologi\Простейшие и кишечнополостные\" />
-      <Folder Include="wwwroot\content\zoologi\Черви и моллюски\" />
-      <Folder Include="wwwroot\content\zoologi\членистоногие\" />
-    </ItemGroup>
-
 </Project>
