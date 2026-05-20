@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <main class="main-page">
     <link rel="stylesheet" href="/css/style.css">
     <section class="biology-section" id="pageContent"></section>
@@ -18,3 +19,302 @@
 
 
 
+=======
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BioKnowledge — База знаний по биологии</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge">🧬</div>
+        <div>BioKnowledge</div>
+      </div>
+      <div class="nav-links">
+        <a href="#sections">Разделы</a>
+        <a href="#materials">Материалы</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#">Войти</a>
+        <a class="btn btn-primary" href="#">Начать учиться</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="eyebrow">🌿 Удобная база знаний по биологии</div>
+        <h1>Изучай биологию<br>понятно, красиво и по темам</h1>
+        <p class="lead">
+          Современная образовательная платформа для подготовки к занятиям, экзаменам и повторению материала.
+          Все разделы биологии собраны в одном месте: от цитологии и генетики до экологии и анатомии человека.
+        </p>
+
+        <div class="search">
+          <input
+                  id="questionInput"
+                  type="text"
+                  placeholder="Спроси: что такое митоз, мейоз или клетка"
+          />
+          <button class="btn btn-primary" id="askButton">Найти материал</button>
+          "></div>
+
+        <div id="answerBox" style="
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #eefaf2;
+  border: 1px solid #d8efdf;
+  color: #18332a;
+  display: none;
+          
+        "></div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#sections">Смотреть разделы</a>
+          <a class="btn btn-secondary" href="#materials">Популярные материалы</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>120+</strong>
+            <span>статей и конспектов</span>
+          </div>
+          <div class="stat">
+            <strong>8</strong>
+            <span>основных разделов</span>
+          </div>
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>доступ к материалам</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual">
+        <div class="blob one"></div>
+        <div class="blob two"></div>
+
+        <div class="panel small p-top">
+          <div class="mini-label">Тема дня</div>
+          <strong>Строение клетки</strong>
+          <div style="color:var(--muted); margin-top:6px;">Органоиды, мембрана, ядро и функции клетки.</div>
+        </div>
+
+        <div class="panel main">
+          <div class="dna">
+            <div class="helix left"></div>
+            <div class="helix right"></div>
+            <div class="rung" style="top:20px;"></div>
+            <div class="rung" style="top:42px;"></div>
+            <div class="rung" style="top:64px;"></div>
+            <div class="rung" style="top:86px;"></div>
+            <div class="rung" style="top:108px;"></div>
+            <div class="rung" style="top:130px;"></div>
+          </div>
+
+          <div class="bio-icons">
+            <div class="bio-icon">🌱<span>Ботаника</span></div>
+            <div class="bio-icon">🦋<span>Зоология</span></div>
+            <div class="bio-icon">🫀<span>Анатомия</span></div>
+            <div class="bio-icon">🔬<span>Генетика</span></div>
+          </div>
+        </div>
+
+        <div class="panel small p-bottom">
+          <div class="mini-label">Популярно</div>
+          <strong>Экология</strong>
+          <div style="color:var(--muted); margin-top:6px;">Цепи питания, биосфера, экологические связи.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="sections">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Разделы биологии</h2>
+          <p>Главные тематические блоки, из которых можно собрать удобную и красивую базу знаний для изучения предмета.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🌿</div>
+          <h3>Ботаника</h3>
+          <p>Растения, ткани, органы, фотосинтез, жизненные циклы и систематика растительного мира.</p>
+          <div class="chip">Растительный мир</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🦉</div>
+          <h3>Зоология</h3>
+          <p>Многообразие животных, типы и классы, особенности строения, поведения и адаптаций.</p>
+          <div class="chip">Животные</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🫀</div>
+          <h3>Анатомия человека</h3>
+          <p>Системы органов, ткани, физиология и основные процессы жизнедеятельности организма человека.</p>
+          <div class="chip">Человек</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧬</div>
+          <h3>Генетика</h3>
+          <p>Наследственность, изменчивость, законы Менделя, ДНК, гены и молекулярные основы жизни.</p>
+          <div class="chip">Наследование</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧫</div>
+          <h3>Цитология</h3>
+          <p>Строение клетки, органоиды, деление клетки, мембраны и обмен веществ на клеточном уровне.</p>
+          <div class="chip">Клетка</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌍</div>
+          <h3>Экология</h3>
+          <p>Экосистемы, пищевые цепи, биосфера, влияние человека на природу и устойчивость среды.</p>
+          <div class="chip">Природа</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🦖</div>
+          <h3>Эволюция</h3>
+          <p>Происхождение жизни, естественный отбор, доказательства эволюции и развитие видов.</p>
+          <div class="chip">Развитие жизни</div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🦠</div>
+          <h3>Микробиология</h3>
+          <p>Бактерии, вирусы, грибы и простейшие, их роль в природе, медицине и жизни человека.</p>
+          <div class="chip">Микромир</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="materials">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Популярные материалы</h2>
+          <p>На главной странице можно сразу показывать самые нужные темы, чтобы ученик быстрее находил важное.</p>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-large">
+          <div>
+            <div class="eyebrow" style="margin-bottom:14px;">📘 Подборка недели</div>
+            <h3 style="margin:0 0 10px; font-size:1.65rem;">Полный разбор темы «Клетка и её органоиды»</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.65;">
+              Готовая статья с иллюстрациями, понятными объяснениями и структурой для быстрого повторения.
+              Такой блок можно использовать как выделенный материал на главной странице.
+            </p>
+            <div class="list">
+              <div class="list-item">
+                <div class="dot">🔎</div>
+                <div><strong>Кратко и понятно</strong><span>Сложные темы разбиты на маленькие логичные части.</span></div>
+              </div>
+              <div class="list-item">
+                <div class="dot">📝</div>
+                <div><strong>Подходит для подготовки</strong><span>Можно использовать для повторения перед уроком или экзаменом.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="illustration-box">
+            <div class="leaf"></div>
+            <div class="cell one"></div>
+            <div class="cell two"></div>
+            <div class="cell three"></div>
+          </div>
+        </div>
+
+        <div class="feature-stack">
+          <div>
+            <h3 style="margin:0 0 10px;">🔥 Часто ищут</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">Фотосинтез, митоз и мейоз, кровообращение, биосфера, генотип и фенотип.</p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 10px;">🎯 Для чего сайт</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">Чтобы ученик быстро находил теорию по биологии без путаницы и лишнего текста.</p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 10px;">📚 Форматы материалов</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">Конспекты, схемы, таблицы, тематические карточки и краткие объяснения.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Почему такой дизайн удобен</h2>
+          <p>Макет сделан так, чтобы сайт выглядел дружелюбно, современно и при этом оставался учебным и понятным.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🎨</div>
+          <h3>Спокойная палитра</h3>
+          <p>Белый, мягкий зелёный и бирюзовый вызывают ассоциации с природой, наукой и чистотой интерфейса.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧭</div>
+          <h3>Понятная навигация</h3>
+          <p>Сразу видно, где искать разделы, материалы, кнопки и поиск по темам.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧠</div>
+          <h3>Учебный акцент</h3>
+          <p>Карточки и блоки помогают не перегружать ученика и разбивать информацию на части.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📱</div>
+          <h3>Адаптивность</h3>
+          <p>Макет подстраивается под ноутбук и телефон, поэтому его можно дальше развивать как настоящий сайт.</p>
+        </article>
+      </div>
+
+      <div class="cta">
+        <div>
+          <h3>Готовый визуальный макет главной страницы</h3>
+          <p>Этот вариант уже можно открывать в браузере, показывать преподавателю или передавать фронтендеру как основу для реального сайта.</p>
+        </div>
+        <a class="btn btn-primary" href="#">Открыть каталог тем</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contacts">
+    <div class="container footer-box">
+      <div>
+        <strong>BioKnowledge</strong><br>
+        <span>База знаний по биологии для учёбы, повторения и подготовки.</span>
+      </div>
+      <div>Главная · Разделы · Материалы · Контакты</div>
+    </div>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
+>>>>>>> a36838fa4e3584f114ad1bdd6e3a7a972502e537
