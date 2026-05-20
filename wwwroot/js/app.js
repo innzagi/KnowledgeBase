@@ -62,11 +62,10 @@ function initBotanyEvents() {
 }
 
 function initAssistantEvents() {
-=======
-﻿
+
     const API_URL = "http://localhost:5237";
 
->>>>>>> a36838fa4e3584f114ad1bdd6e3a7a972502e537
+
     const questionInput = document.getElementById("questionInput");
     const askButton = document.getElementById("askButton");
     const answerBox = document.getElementById("answerBox");
@@ -166,7 +165,7 @@ async function loadArticle(articlePath) {
 function markdownToHtml(markdown) {
     return marked.parse(markdown);
 }
-=======
+
     async function askQuestion() {
     const question = questionInput.value.trim();
 
@@ -205,4 +204,3 @@ function markdownToHtml(markdown) {
     askQuestion();
 }
 });
->>>>>>> a36838fa4e3584f114ad1bdd6e3a7a972502e537
