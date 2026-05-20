@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿const API_URL = "http://localhost:5237";
+const API_URL = "http://localhost:5237";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await loadHomePage();
@@ -61,18 +60,50 @@ function initBotanyEvents() {
     });
 }
 
+async function loadArticle(articlePath) {
+    const response = await fetch(articlePath);
+
+    if (!response.ok) {
+        document.getElementById("pageContent").innerHTML = `
+            <article class="article-page">
+                <button class="back-button" id="backToBotany" type="button">
+                    ← Назад к ботанике
+                </button>
+                <p>Статья не найдена: ${articlePath}</p>
+            </article>
+        `;
+
+        document.getElementById("backToBotany").addEventListener("click", loadBotanyPage);
+        return;
+    }
+
+    const markdown = await response.text();
+
+    document.getElementById("pageContent").innerHTML = `
+        <article class="article-page">
+            <button class="back-button" id="backToBotany" type="button">
+                ← Назад к ботанике
+            </button>
+
+            <div class="article-content">
+                ${markdownToHtml(markdown)}
+            </div>
+        </article>
+    `;
+
+    document.getElementById("backToBotany").addEventListener("click", loadBotanyPage);
+}
+
+function markdownToHtml(markdown) {
+    return marked.parse(markdown);
+}
+
 function initAssistantEvents() {
-
-    const API_URL = "http://localhost:5237";
-
-
     const questionInput = document.getElementById("questionInput");
     const askButton = document.getElementById("askButton");
     const answerBox = document.getElementById("answerBox");
 
-<<<<<<< HEAD
     if (!questionInput || !askButton || !answerBox) {
-        console.error("Элементы ИИ-ассистента не найдены");
         return;
     }
 
@@ -95,9 +126,8 @@ function initAssistantEvents() {
 
             const answer = await response.text();
             showAnswer(answer);
-        } catch (error) {
+        } catch {
             showAnswer("Не удалось подключиться к серверу.");
-            console.error(error);
         }
     }
 
@@ -113,94 +143,4 @@ function initAssistantEvents() {
             askQuestion();
         }
     });
-
-    document.querySelectorAll(".assistant-examples button").forEach(button => {
-        button.addEventListener("click", () => {
-            questionInput.value = button.textContent;
-            askQuestion();
-        });
-    });
 }
-
-async function loadArticle(articlePath) {
-    const response = await fetch(articlePath);
-
-    if (!response.ok) {
-        document.getElementById("pageContent").innerHTML = `
-            <article class="article-page">
-                <button class="back-button" id="backToBotany" type="button">
-                    ← Назад к ботанике
-                </button>
-
-                <p>Статья не найдена: ${articlePath}</p>
-            </article>
-        `;
-
-        document
-            .getElementById("backToBotany")
-            .addEventListener("click", loadBotanyPage);
-
-        return;
-    }
-
-    const markdown = await response.text();
-
-    document.getElementById("pageContent").innerHTML = `
-        <article class="article-page">
-            <button class="back-button" id="backToBotany" type="button">
-                ← Назад к ботанике
-            </button>
-
-            <div class="article-content">
-                ${markdownToHtml(markdown)}
-            </div>
-        </article>
-    `;
-
-    document
-        .getElementById("backToBotany")
-        .addEventListener("click", loadBotanyPage);
-}
-
-function markdownToHtml(markdown) {
-    return marked.parse(markdown);
-}
-
-    async function askQuestion() {
-    const question = questionInput.value.trim();
-
-    if (question === "") {
-    answerBox.style.display = "block";
-    answerBox.textContent = "Введите вопрос.";
-    return;
-}
-
-    try {
-    const response = await fetch(`${API_URL}/ask`, {
-    method: "POST",
-    headers: {
-    "Content-Type": "application/json"
-},
-    body: JSON.stringify({
-    question: question
-})
-});
-
-    const answer = await response.text();
-
-    answerBox.style.display = "block";
-    answerBox.textContent = answer;
-} catch (error) {
-    answerBox.style.display = "block";
-    answerBox.textContent = "Не удалось подключиться к серверу. Проверь, запущен ли бэкенд.";
-    console.error(error);
-}
-}
-
-    askButton.addEventListener("click", askQuestion);
-
-    questionInput.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-    askQuestion();
-}
-});
