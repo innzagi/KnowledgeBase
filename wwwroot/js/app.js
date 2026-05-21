@@ -85,9 +85,11 @@ async function loadArticle(articlePath) {
                 ← Назад к ботанике
             </button>
 
-            <div class="article-content">
-                ${markdownToHtml(markdown)}
-            </div>
+<div class="article-content">
+    <div class="article-columns">
+        ${markdownToHtml(markdown)}
+    </div>
+</div>
         </article>
     `;
 
