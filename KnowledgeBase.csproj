@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\Protozoa_and_coelenterates\2" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\protozoa_and_coelenterates\2" />
     </ItemGroup>
 
     <ItemGroup>
