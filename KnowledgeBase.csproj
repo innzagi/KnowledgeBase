@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\content\common_biology\pictures_OB\Cell_Pic\" />
+      <Folder Include="wwwroot\content\common_biology\pictures_common_biology\cell_pic\" />
     </ItemGroup>
 
     <ItemGroup>
