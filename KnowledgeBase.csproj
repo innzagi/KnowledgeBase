@@ -11,4 +11,42 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\content\OB\pictures_OB\Cell_Pic\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\arthropods.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Bee Colony.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Body Regions of Crustaceans.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Circulatory system.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Class Insecta.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Development with complete metamorphosis.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Development with Incomplete Metamorphosis.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Diverse Mouthparts.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Eurypterid.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Harvestman.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Insect Limbs1.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Insect Limbs2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Internal structure of a crustacean.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Internal structure of an arachnid.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Mite.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Coleoptera (Beetles).png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Diptera.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Fleas.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Hemiptera (True Bugs).png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Homoptera.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Hymenoptera1.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Hymenoptera2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Lepidoptera (Butterflies and Moths).png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Lice.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Odonata.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Order Orthoptera.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Respiratory System.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Solifuge.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Structure of a crustacean eye.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Structure of an arachnid.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Trilobite.png" />
+    </ItemGroup>
+
 </Project>

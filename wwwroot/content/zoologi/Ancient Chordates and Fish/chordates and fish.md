@@ -1,0 +1,326 @@
+# Тип Хордовые
+
+## Главные признаки хордовых
+
+<div class="article-block">
+<div class="article-text">
+
+1. Внутренний осевой скелет — хорда.
+2. Нервная система представлена нервной трубкой.
+3. Пищеварительная система расположена под хордой.
+4. Двусторонняя симметрия тела.
+5. Вторичноротость.
+6. Вторичная полость тела — целом.
+7. Замкнутая кровеносная система.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Subphylum%20Cephalochordata1.png" alt="Хордовые">
+</div>
+
+---
+
+# Систематика хордовых
+
+- Тип Хордовые
+    - Оболочники
+    - Бесчерепные
+    - Позвоночные
+
+---
+
+# Подтип Оболочники
+
+<div class="article-block reverse">
+<div class="article-text">
+
+- Представители: асцидии, сальпы.
+- Морские фильтраторы.
+- Хорда и нервная трубка есть только у личинок.
+- У взрослых исчезают.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Subphylum%20Urochordata%20(Tunicates).png" alt="Оболочники">
+</div>
+
+---
+
+# Подтип Бесчерепные — Ланцетник
+
+<div class="article-block">
+<div class="article-text">
+
+- Обитает в песке.
+- Хорда сохраняется всю жизнь.
+- Сердца нет.
+- Один круг кровообращения.
+- Органы чувств развиты слабо.
+- Оплодотворение наружное.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Subphylum%20Cephalochordata2.png" alt="Ланцетник">
+</div>
+
+---
+
+# Подтип Позвоночные
+
+## Признаки позвоночных
+
+- позвоночник и череп;
+- головной и спинной мозг;
+- парные конечности;
+- сердце;
+- почки.
+
+---
+
+# Класс Круглоротые
+
+<div class="article-block reverse">
+<div class="article-text">
+
+- Челюстей нет.
+- Конечностей нет.
+- Рот — присасывательная воронка.
+- Кожа голая, выделяет слизь.
+- Представители: миноги и миксины.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Class%20Cyclostomata1.png" alt="Круглоротые">
+</div>
+
+<div class="article-wide-image">
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Class%20Cyclostomata2.png" alt="Минога">
+</div>
+
+---
+
+# Надкласс Рыбы
+
+## Внешнее строение
+
+<div class="article-block">
+<div class="article-text">
+
+- Тело делится на голову, туловище и хвост.
+- Форма тела обтекаемая.
+- Есть парные и непарные плавники.
+
+### Чешуя
+
+- У костных рыб — костная.
+- У хрящевых — плакоидная.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Placoid.png" alt="Плакоидная чешуя">
+</div>
+
+---
+
+# Скелет рыб
+
+<div class="article-block reverse">
+<div class="article-text">
+
+- Череп состоит из мозгового и висцерального отделов.
+- Позвоночник состоит из туловищного и хвостового отделов.
+- Есть рёбра.
+- Грудной клетки нет.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/fish%20skeleton1.png" alt="Скелет рыбы">
+</div>
+
+<div class="article-wide-image">
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/fish%20skeleton2.png" alt="Скелет рыбы">
+</div>
+
+---
+
+# Плавательный пузырь
+
+<div class="article-block">
+<div class="article-text">
+
+## Функции
+
+- регулирует плавучесть;
+- участвует в дыхании;
+- усиливает звуки.
+
+У хрящевых рыб плавательного пузыря нет.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Swim%20bladder.png" alt="Плавательный пузырь">
+</div>
+
+---
+
+# Дыхательная система
+
+<div class="article-block reverse">
+<div class="article-text">
+
+- Орган дыхания — жабры.
+- У костных рыб есть жаберные крышки.
+- У акул крышек нет.
+
+## Типы дыхания
+
+| Тип | У кого |
+|---|---|
+| Нагнетательный | костные рыбы |
+| Таранный | акулы |
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Respiratory%20System.png" alt="Жабры рыб">
+</div>
+
+---
+
+# Кровеносная система
+
+<div class="article-block">
+<div class="article-text">
+
+- Один круг кровообращения.
+- Сердце двухкамерное.
+- В сердце только венозная кровь.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/The%20Circulatory%20System%20of%20a%20Fish.png" alt="Кровеносная система рыб">
+</div>
+
+---
+
+# Нервная система
+
+<div class="article-block reverse">
+<div class="article-text">
+
+- Передний мозг отвечает за обоняние.
+- Мозжечок хорошо развит.
+- Рыбы обладают сложной координацией движений.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Nervous%20system.png" alt="Нервная система рыб">
+</div>
+
+---
+
+# Боковая линия
+
+<div class="article-block">
+<div class="article-text">
+
+Боковая линия помогает:
+
+- ощущать движение воды;
+- обнаруживать препятствия;
+- чувствовать движение других животных.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Lateral%20line.png" alt="Боковая линия">
+</div>
+
+---
+
+# Размножение рыб
+
+<div class="article-block reverse">
+<div class="article-text">
+
+- Рыбы раздельнополые.
+- Размножение называется нерестом.
+- У костных рыб оплодотворение обычно наружное.
+- У хрящевых — внутреннее.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Reproductive%20System.png" alt="Размножение рыб">
+</div>
+
+---
+
+# Хрящевые рыбы
+
+| Признак | Характеристика |
+|---|---|
+| Скелет | хрящевой |
+| Жаберные крышки | отсутствуют |
+| Плавательный пузырь | отсутствует |
+| Оплодотворение | внутреннее |
+| Представители | акулы, скаты |
+
+---
+
+# Костные рыбы
+
+## Подклассы
+
+### Хрящекостные
+- осетры;
+- белуга.
+
+### Двоякодышащие
+- способны дышать атмосферным воздухом.
+
+<div class="article-wide-image">
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Lungfish.png" alt="Двоякодышащие">
+</div>
+
+### Кистепёрые
+
+<div class="article-block">
+<div class="article-text">
+
+- От кистепёрых произошли земноводные.
+- Современный представитель — латимерия.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Coelacanth.png" alt="Латимерия">
+</div>
+
+### Лучепёрые
+- большинство современных рыб.
+
+---
+
+# Сравнение хрящевых и костных рыб
+
+| Признак | Хрящевые | Костные |
+|---|---|---|
+| Скелет | хрящевой | костный |
+| Жаберные крышки | нет | есть |
+| Плавательный пузырь | нет | есть |
+| Оплодотворение | внутреннее | наружное |
+
+---
+
+# Происхождение земноводных
+
+<div class="article-block reverse">
+<div class="article-text">
+
+Предками земноводных считаются кистепёрые рыбы.
+
+Особенно важны:
+- наличие лёгочного дыхания;
+- строение плавников.
+
+</div>
+
+<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/bony.png" alt="Кистепёрые рыбы">
+</div>
