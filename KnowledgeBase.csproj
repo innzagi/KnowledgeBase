@@ -11,10 +11,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\content\common_biology\pictures_common_biology\cell_pic\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\arthropods.md" />
       <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Bee Colony.png" />
       <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Body Regions of Crustaceans.png" />
