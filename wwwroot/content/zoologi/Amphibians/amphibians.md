@@ -19,7 +19,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/Caecilian.png" alt="Покровы земноводных">
+  <img src="/content/zoologi/Amphibians/picture/Caecilian.png" alt="Покровы земноводных">
 </div>
 
 ---
@@ -44,7 +44,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/skeleton%20frog.png" alt="Скелет лягушки">
+  <img src="/content/zoologi/Amphibians/picture/skeleton%20frog.png" alt="Скелет лягушки">
 </div>
 
 ---
@@ -70,7 +70,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/Frog%20lungs.png" alt="Лёгкие лягушки">
+  <img src="/content/zoologi/Amphibians/picture/Frog%20lungs.png" alt="Лёгкие лягушки">
 </div>
 
 ---
@@ -99,7 +99,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/Circulatory%20system.png" alt="Кровеносная система земноводных">
+  <img src="/content/zoologi/Amphibians/picture/Circulatory%20system.png" alt="Кровеносная система земноводных">
 </div>
 
 ---
@@ -147,7 +147,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/frog%20brain.png" alt="Головной мозг лягушки">
+  <img src="/content/zoologi/Amphibians/picture/frog%20brain.png" alt="Головной мозг лягушки">
 </div>
 
 ---
@@ -168,7 +168,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/frog%20ear.png" alt="Ухо лягушки">
+  <img src="/content/zoologi/Amphibians/picture/frog%20ear.png" alt="Ухо лягушки">
 </div>
 
 ---
@@ -193,7 +193,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/Frogs%20and%20frogspawn1.png" alt="Икра лягушки">
+  <img src="/content/zoologi/Amphibians/picture/Frogs%20and%20frogspawn1.png" alt="Икра лягушки">
 </div>
 
 <div class="article-block reverse">
@@ -208,7 +208,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/Frogs%20and%20frogspawn2.png" alt="Развитие лягушки">
+  <img src="/content/zoologi/Amphibians/picture/Frogs%20and%20frogspawn2.png" alt="Развитие лягушки">
 </div>
 
 <div class="article-block">
@@ -227,7 +227,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/axolotl%20metamorphosis.png" alt="Метаморфоз аксолотля">
+  <img src="/content/zoologi/Amphibians/picture/axolotl%20metamorphosis.png" alt="Метаморфоз аксолотля">
 </div>
 
 ---
@@ -271,7 +271,7 @@
 | Современные земноводные | появились позднее, в конце мезозоя |
 
 <div class="article-wide-image">
-  <img src="/content/zoologi/Amphibians/picture%20amph/Stegocephalian.png" alt="Древние земноводные">
+  <img src="/content/zoologi/Amphibians/picture/Stegocephalian.png" alt="Древние земноводные">
 </div>
 
 ---
@@ -295,15 +295,15 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/Amphibians.%20Order%20Caudata1.png" alt="Хвостатые земноводные">
+  <img src="/content/zoologi/Amphibians/picture/amphibians.%20Order%20Caudata1.png" alt="Хвостатые земноводные">
 </div>
 
 <div class="article-wide-image">
-  <img src="/content/zoologi/Amphibians/picture%20amph/Amphibians.%20Order%20Caudata2.png" alt="Хвостатые земноводные">
+  <img src="/content/zoologi/Amphibians/picture/amphibians.%20Order%20Caudata2.png" alt="Хвостатые земноводные">
 </div>
 
 <div class="article-wide-image">
-  <img src="/content/zoologi/Amphibians/picture%20amph/Amphibians.%20Order%20Caudata3.png" alt="Хвостатые земноводные">
+  <img src="/content/zoologi/Amphibians/picture/amphibians.%20Order%20Caudata3.png" alt="Хвостатые земноводные">
 </div>
 
 ---
@@ -326,11 +326,11 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/Class%20Amphibia.%20Order%20Anura1.png" alt="Бесхвостые земноводные">
+  <img src="/content/zoologi/Amphibians/picture/Class%20Amphibia.%20Order%20Anura1.png" alt="Бесхвостые земноводные">
 </div>
 
 <div class="article-wide-image">
-  <img src="/content/zoologi/Amphibians/picture%20amph/Class%20Amphibia.%20Order%20Anura2.png" alt="Бесхвостые земноводные">
+  <img src="/content/zoologi/Amphibians/picture/Class%20Amphibia.%20Order%20Anura2.png" alt="Бесхвостые земноводные">
 </div>
 
 ---
@@ -351,7 +351,7 @@
 
   </div>
 
-  <img src="/content/zoologi/Amphibians/picture%20amph/Caecilian.png" alt="Безногие земноводные">
+  <img src="/content/zoologi/Amphibians/picture/Caecilian.png" alt="Безногие земноводные">
 </div>
 
 ---

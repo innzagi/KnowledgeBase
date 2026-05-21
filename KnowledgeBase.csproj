@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\content\zoology\Protozoa_and_coelenterates\2" />
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\Protozoa_and_coelenterates\2" />
     </ItemGroup>
 
     <ItemGroup>
@@ -46,6 +46,10 @@
       <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Structure of a crustacean eye.png" />
       <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Structure of an arachnid.png" />
       <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\arthropods\picture arthropods\Trilobite.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="wwwroot\content\zoologi\amphibians\picture\Amphibians. Order Caudata3.png" />
     </ItemGroup>
 
 </Project>
