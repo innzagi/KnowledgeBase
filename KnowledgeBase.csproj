@@ -6,4 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\content\zoology\Protozoa_and_coelenterates\2" />
+    </ItemGroup>
+
 </Project>
