@@ -15,7 +15,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Subphylum%20Cephalochordata1.png" alt="Хордовые">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Subphylum%20Cephalochordata1.png" alt="Хордовые">
 </div>
 
 ---
@@ -41,7 +41,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Subphylum%20Urochordata%20(Tunicates).png" alt="Оболочники">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Subphylum%20Urochordata%20(Tunicates).png" alt="Оболочники">
 </div>
 
 ---
@@ -60,7 +60,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Subphylum%20Cephalochordata2.png" alt="Ланцетник">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Subphylum%20Cephalochordata2.png" alt="Ланцетник">
 </div>
 
 ---
@@ -90,11 +90,11 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Class%20Cyclostomata1.png" alt="Круглоротые">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Class%20Cyclostomata1.png" alt="Круглоротые">
 </div>
 
 <div class="article-wide-image">
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Class%20Cyclostomata2.png" alt="Минога">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Class%20Cyclostomata2.png" alt="Минога">
 </div>
 
 ---
@@ -117,7 +117,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Placoid.png" alt="Плакоидная чешуя">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Placoid.png" alt="Плакоидная чешуя">
 </div>
 
 ---
@@ -134,11 +134,11 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/fish%20skeleton1.png" alt="Скелет рыбы">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/fish%20skeleton1.png" alt="Скелет рыбы">
 </div>
 
 <div class="article-wide-image">
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/fish%20skeleton2.png" alt="Скелет рыбы">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/fish%20skeleton2.png" alt="Скелет рыбы">
 </div>
 
 ---
@@ -158,7 +158,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Swim%20bladder.png" alt="Плавательный пузырь">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Swim%20bladder.png" alt="Плавательный пузырь">
 </div>
 
 ---
@@ -181,7 +181,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Respiratory%20System.png" alt="Жабры рыб">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Respiratory%20System.png" alt="Жабры рыб">
 </div>
 
 ---
@@ -197,7 +197,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/The%20Circulatory%20System%20of%20a%20Fish.png" alt="Кровеносная система рыб">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/The%20Circulatory%20System%20of%20a%20Fish.png" alt="Кровеносная система рыб">
 </div>
 
 ---
@@ -213,7 +213,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Nervous%20system.png" alt="Нервная система рыб">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Nervous%20system.png" alt="Нервная система рыб">
 </div>
 
 ---
@@ -231,7 +231,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Lateral%20line.png" alt="Боковая линия">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Lateral%20line.png" alt="Боковая линия">
 </div>
 
 ---
@@ -248,7 +248,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Reproductive%20System.png" alt="Размножение рыб">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Reproductive%20System.png" alt="Размножение рыб">
 </div>
 
 ---
@@ -277,7 +277,7 @@
 - способны дышать атмосферным воздухом.
 
 <div class="article-wide-image">
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Lungfish.png" alt="Двоякодышащие">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Lungfish.png" alt="Двоякодышащие">
 </div>
 
 ### Кистепёрые
@@ -290,7 +290,7 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/Coelacanth.png" alt="Латимерия">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/Coelacanth.png" alt="Латимерия">
 </div>
 
 ### Лучепёрые
@@ -322,5 +322,5 @@
 
 </div>
 
-<img src="/content/zoologi/Ancient%20Chordates%20and%20Fish/picture%20Ancient%20Chordates%20and%20Fish/bony.png" alt="Кистепёрые рыбы">
+<img src="/content/zoologi/ancient_chordates_and_fish/picture/bony.png" alt="Кистепёрые рыбы">
 </div>
