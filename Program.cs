@@ -1,8 +1,5 @@
 var builder = WebApplication.CreateBuilder(args); // создает приложение
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-// подключает свагер 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -15,13 +12,7 @@ builder.Services.AddCors(options =>
 });
 var app = builder.Build(); // сборка приложения
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(); // Если проект запущен локально, показывать свагер
-}
-
-app.UseHttpsRedirection(); // перенаправление на https 
+app.UseHttpsRedirection(); // перенаправление на https
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseCors("AllowFrontend");

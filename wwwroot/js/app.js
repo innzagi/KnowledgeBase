@@ -3,7 +3,25 @@ const API_URL = "http://localhost:5237";
 document.addEventListener("DOMContentLoaded", async () => {
     await loadHomePage();
     await loadAssistant();
+    initBrandEvents();
 });
+
+function initBrandEvents() {
+    const brand = document.getElementById("homeBrand");
+
+    if (!brand) {
+        return;
+    }
+
+    brand.addEventListener("click", loadHomePage);
+
+    brand.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            loadHomePage();
+        }
+    });
+}
 
 async function loadComponent(containerId, path) {
     const container = document.getElementById(containerId);
@@ -28,9 +46,9 @@ async function loadHomePage() {
     initHomeEvents();
 }
 
-async function loadBotanyPage() {
-    await loadComponent("pageContent", "/components/botany.html");
-    initBotanyEvents();
+async function loadSection(sectionName) {
+    await loadComponent("pageContent", `/components/${sectionName}.html`);
+    initSectionEvents(sectionName);
 }
 
 async function loadAssistant() {
@@ -39,14 +57,14 @@ async function loadAssistant() {
 }
 
 function initHomeEvents() {
-    const botanyCard = document.querySelector('[data-section="botany"]');
-
-    if (botanyCard) {
-        botanyCard.addEventListener("click", loadBotanyPage);
-    }
+    document.querySelectorAll("[data-section]").forEach(card => {
+        card.addEventListener("click", () => {
+            loadSection(card.dataset.section);
+        });
+    });
 }
 
-function initBotanyEvents() {
+function initSectionEvents(sectionName) {
     const backButton = document.getElementById("backToSections");
 
     if (backButton) {
@@ -55,25 +73,25 @@ function initBotanyEvents() {
 
     document.querySelectorAll("[data-article]").forEach(card => {
         card.addEventListener("click", () => {
-            loadArticle(card.dataset.article);
+            loadArticle(card.dataset.article, sectionName);
         });
     });
 }
 
-async function loadArticle(articlePath) {
+async function loadArticle(articlePath, sectionName) {
     const response = await fetch(articlePath);
 
     if (!response.ok) {
         document.getElementById("pageContent").innerHTML = `
             <article class="article-page">
-                <button class="back-button" id="backToBotany" type="button">
-                    ← Назад к ботанике
+                <button class="back-button" id="backToSection" type="button">
+                    ← Назад
                 </button>
                 <p>Статья не найдена: ${articlePath}</p>
             </article>
         `;
 
-        document.getElementById("backToBotany").addEventListener("click", loadBotanyPage);
+        document.getElementById("backToSection").addEventListener("click", () => loadSection(sectionName));
         return;
     }
 
@@ -81,8 +99,8 @@ async function loadArticle(articlePath) {
 
     document.getElementById("pageContent").innerHTML = `
         <article class="article-page">
-            <button class="back-button" id="backToBotany" type="button">
-                ← Назад к ботанике
+            <button class="back-button" id="backToSection" type="button">
+                ← Назад
             </button>
 
 <div class="article-content">
@@ -93,7 +111,7 @@ async function loadArticle(articlePath) {
         </article>
     `;
 
-    document.getElementById("backToBotany").addEventListener("click", loadBotanyPage);
+    document.getElementById("backToSection").addEventListener("click", () => loadSection(sectionName));
 }
 
 function markdownToHtml(markdown) {
