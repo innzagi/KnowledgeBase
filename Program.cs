@@ -1,3 +1,7 @@
+using System.Net.Http.Headers;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args); // создает приложение
 
 builder.Services.AddCors(options =>
@@ -10,6 +14,25 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+
+// HttpClient для GigaChat. На время разработки можно отключить проверку TLS
+// (флаг Gigachat:IgnoreTlsErrors=true), пока не установлен корневой сертификат
+// Минцифры в системное хранилище.
+builder.Services.AddHttpClient("gigachat")
+    .ConfigurePrimaryHttpMessageHandler(sp =>
+    {
+        var cfg = sp.GetRequiredService<IConfiguration>();
+        var handler = new HttpClientHandler();
+        if (cfg.GetValue<bool>("Gigachat:IgnoreTlsErrors"))
+        {
+            handler.ServerCertificateCustomValidationCallback =
+                (_, _, _, _) => true;
+        }
+        return handler;
+    });
+
+builder.Services.AddSingleton<GigaChatTokenCache>();
+
 var app = builder.Build(); // сборка приложения
 
 app.UseHttpsRedirection(); // перенаправление на https
@@ -58,35 +81,153 @@ app.MapGet("/articles/botany/tissues", () =>
            - Водоносная
            """;
 });
-app.MapPost("/ask", (AskRequest request) =>
+app.MapPost("/ask", async (
+    AskRequest request,
+    IHttpClientFactory httpFactory,
+    IConfiguration config,
+    GigaChatTokenCache tokenCache) =>
 {
-    var knowledgeBase = new Dictionary<string, string>
-    {
-        { "митоз", "Митоз — это процесс деления клетки, при котором из одной клетки образуются две генетически одинаковые дочерние клетки." },
-        { "мейоз", "Мейоз — это деление клетки, при котором число хромосом уменьшается вдвое." },
-        { "клетка", "Клетка — это элементарная структурная и функциональная единица живого организма." }
-    };
+    var userMessages = request.Messages?
+        .Where(m => !string.IsNullOrWhiteSpace(m.Content))
+        .ToList() ?? new List<ChatMessage>();
 
-    var question = request.Question.ToLower();
-
-    foreach (var item in knowledgeBase)
+    if (userMessages.Count == 0)
     {
-        if (question.Contains(item.Key))
-        {
-            return Results.Ok(item.Value);
-        }
+        return Results.Text("Введите вопрос.");
     }
 
-    return Results.Ok("Я пока не нашёл ответ в базе знаний.");
+    var authKey = config["Gigachat:AuthKey"];
+    if (string.IsNullOrWhiteSpace(authKey))
+    {
+        return Results.Text(
+            "Авторизационные данные GigaChat не настроены. Выполните: " +
+            "dotnet user-secrets set \"Gigachat:AuthKey\" \"<Authorization key из Сбер Studio>\"");
+    }
+
+    var scope = config["Gigachat:Scope"] ?? "GIGACHAT_API_PERS";
+    var model = config["Gigachat:Model"] ?? "GigaChat";
+
+    var messagesForApi = new List<object>
+    {
+        new
+        {
+            role = "system",
+            content = "Ты — учебный ассистент по биологии для школьной базы знаний. " +
+                      "Отвечай по-русски, кратко и понятно школьнику. " +
+                      "Если вопрос не по биологии — вежливо скажи, что отвечаешь только по биологии."
+        }
+    };
+    messagesForApi.AddRange(userMessages.Select(m => (object)new { role = m.Role, content = m.Content }));
+
+    var http = httpFactory.CreateClient("gigachat");
+    try
+    {
+        var token = await tokenCache.GetTokenAsync(http, authKey, scope);
+
+        var chatReq = new HttpRequestMessage(
+            HttpMethod.Post,
+            "https://gigachat.devices.sberbank.ru/api/v1/chat/completions");
+        chatReq.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        chatReq.Content = JsonContent.Create(new
+        {
+            model,
+            messages = messagesForApi
+        });
+
+        var response = await http.SendAsync(chatReq);
+        if (!response.IsSuccessStatusCode)
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            return Results.Text($"Ошибка GigaChat ({(int)response.StatusCode}): {error}");
+        }
+
+        var json = await response.Content.ReadFromJsonAsync<GigaChatResponse>();
+        var text = json?.Choices?.FirstOrDefault()?.Message?.Content;
+        return Results.Text(string.IsNullOrWhiteSpace(text) ? "Пустой ответ от модели." : text);
+    }
+    catch (Exception ex)
+    {
+        return Results.Text($"Не удалось обратиться к GigaChat: {ex.Message}");
+    }
 });
 
 app.Run();
 
 public class AskRequest
 {
-    public string Question { get; set; } = "";
+    public List<ChatMessage>? Messages { get; set; }
 }
 
+public class ChatMessage
+{
+    public string Role { get; set; } = "user";
+    public string Content { get; set; } = "";
+}
 
+// Кэширует access_token GigaChat (он живёт ~30 минут), чтобы не запрашивать его на каждый вопрос.
+public class GigaChatTokenCache
+{
+    private string? _token;
+    private DateTimeOffset _expiresAt;
+    private readonly SemaphoreSlim _lock = new(1, 1);
 
+    public async Task<string> GetTokenAsync(HttpClient http, string authKey, string scope)
+    {
+        await _lock.WaitAsync();
+        try
+        {
+            if (_token is not null && DateTimeOffset.UtcNow < _expiresAt.AddMinutes(-1))
+            {
+                return _token;
+            }
 
+            var req = new HttpRequestMessage(
+                HttpMethod.Post,
+                "https://ngw.devices.sberbank.ru:9443/api/v2/oauth");
+            req.Headers.Add("Authorization", $"Basic {authKey}");
+            req.Headers.Add("RqUID", Guid.NewGuid().ToString());
+            req.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            req.Content = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("scope", scope)
+            });
+
+            var resp = await http.SendAsync(req);
+            if (!resp.IsSuccessStatusCode)
+            {
+                var body = await resp.Content.ReadAsStringAsync();
+                throw new InvalidOperationException(
+                    $"OAuth GigaChat не прошёл ({(int)resp.StatusCode}): {body}");
+            }
+
+            using var stream = await resp.Content.ReadAsStreamAsync();
+            using var doc = await JsonDocument.ParseAsync(stream);
+            _token = doc.RootElement.GetProperty("access_token").GetString()!;
+            var expiresMs = doc.RootElement.GetProperty("expires_at").GetInt64();
+            _expiresAt = DateTimeOffset.FromUnixTimeMilliseconds(expiresMs);
+            return _token;
+        }
+        finally
+        {
+            _lock.Release();
+        }
+    }
+}
+
+public class GigaChatResponse
+{
+    [JsonPropertyName("choices")]
+    public List<GigaChatChoice>? Choices { get; set; }
+}
+
+public class GigaChatChoice
+{
+    [JsonPropertyName("message")]
+    public GigaChatMessage? Message { get; set; }
+}
+
+public class GigaChatMessage
+{
+    [JsonPropertyName("content")]
+    public string? Content { get; set; }
+}

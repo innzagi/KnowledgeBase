@@ -277,9 +277,12 @@ a {
 }
 
 .assistant-chat {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 12px;
     margin-bottom: 16px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .message {
@@ -287,17 +290,32 @@ a {
     border-radius: 18px;
     line-height: 1.5;
     font-size: .95rem;
+    max-width: 85%;
+    word-wrap: break-word;
 }
 
 .bot-message {
     background: #eefaf2;
     border: 1px solid #d8efdf;
+    align-self: flex-start;
 }
 
-.answer-message {
-    display: none;
-    background: white;
-    border: 1px solid var(--line);
+.bot-message :first-child { margin-top: 0; }
+.bot-message :last-child  { margin-bottom: 0; }
+.bot-message ol, .bot-message ul { padding-left: 1.4em; margin: 0.4em 0; }
+.bot-message p { margin: 0.4em 0; }
+.bot-message code { background: #f0f4f0; padding: 1px 4px; border-radius: 4px; }
+
+.user-message {
+    background: #e8f0fe;
+    border: 1px solid #c9dcfb;
+    align-self: flex-end;
+    white-space: pre-wrap;
+}
+
+.message.loading {
+    opacity: .6;
+    font-style: italic;
 }
 
 .assistant-search {

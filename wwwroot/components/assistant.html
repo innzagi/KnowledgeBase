@@ -1,4 +1,4 @@
-﻿<div class="ai-assistant">
+<div class="ai-assistant">
     <div class="assistant-header">
         <div class="assistant-icon">🤖</div>
         <div>
@@ -8,20 +8,17 @@
     </div>
 
     <div class="assistant-examples">
-        <button type="button">Что такое митоз?</button>
-        <button type="button">Чем мейоз отличается от митоза?</button>
-        <button type="button">Что такое клетка?</button>
+        <button type="button" data-prompt="Что такое митоз?">Что такое митоз?</button>
+        <button type="button" data-prompt="Чем мейоз отличается от митоза?">Чем мейоз отличается от митоза?</button>
+        <button type="button" data-prompt="Что такое клетка?">Что такое клетка?</button>
     </div>
 
-    <div class="assistant-chat">
-        <div class="message bot-message">
-            Привет! Я помогу найти ответ в базе знаний по биологии.
-        </div>
-        <div id="answerBox" class="message answer-message"></div>
+    <div id="assistantChat" class="assistant-chat">
+        <div class="message bot-message">Привет! Я помогу найти ответ в базе знаний по биологии.</div>
     </div>
 
     <div class="assistant-search">
-        <input id="questionInput" type="text" placeholder="Напиши вопрос..." />
+        <input id="questionInput" type="text" placeholder="Напиши вопрос..."/>
         <button id="askButton" type="button">Спросить</button>
     </div>
 </div>

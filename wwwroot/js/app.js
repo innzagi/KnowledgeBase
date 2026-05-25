@@ -31,7 +31,7 @@ async function loadComponent(containerId, path) {
         return;
     }
 
-    const response = await fetch(path);
+    const response = await fetch(path, { cache: "no-cache" });
 
     if (!response.ok) {
         container.innerHTML = `<p>Не удалось загрузить компонент: ${path}</p>`;
@@ -121,39 +121,56 @@ function markdownToHtml(markdown) {
 function initAssistantEvents() {
     const questionInput = document.getElementById("questionInput");
     const askButton = document.getElementById("askButton");
-    const answerBox = document.getElementById("answerBox");
+    const chatBox = document.getElementById("assistantChat");
 
-    if (!questionInput || !askButton || !answerBox) {
+    if (!questionInput || !askButton || !chatBox) {
         return;
+    }
+
+    const history = [];
+
+    function appendMessage(role, text) {
+        const bubble = document.createElement("div");
+        bubble.className = "message " + (role === "user" ? "user-message" : "bot-message");
+        bubble.textContent = text;
+        chatBox.appendChild(bubble);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        return bubble;
     }
 
     async function askQuestion() {
         const question = questionInput.value.trim();
 
         if (question === "") {
-            showAnswer("Введите вопрос.");
             return;
         }
 
+        questionInput.value = "";
+        appendMessage("user", question);
+        history.push({ role: "user", content: question });
+
+        const loadingBubble = appendMessage("assistant", "Думаю…");
+        loadingBubble.classList.add("loading");
+
+        askButton.disabled = true;
         try {
             const response = await fetch(`${API_URL}/ask`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ question })
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ messages: history })
             });
 
             const answer = await response.text();
-            showAnswer(answer);
+            loadingBubble.classList.remove("loading");
+            loadingBubble.innerHTML = marked.parse(answer);
+            history.push({ role: "assistant", content: answer });
         } catch {
-            showAnswer("Не удалось подключиться к серверу.");
+            loadingBubble.classList.remove("loading");
+            loadingBubble.textContent = "Не удалось подключиться к серверу.";
+        } finally {
+            askButton.disabled = false;
+            chatBox.scrollTop = chatBox.scrollHeight;
         }
-    }
-
-    function showAnswer(text) {
-        answerBox.style.display = "block";
-        answerBox.textContent = text;
     }
 
     askButton.addEventListener("click", askQuestion);
@@ -162,5 +179,12 @@ function initAssistantEvents() {
         if (event.key === "Enter") {
             askQuestion();
         }
+    });
+
+    document.querySelectorAll(".assistant-examples button[data-prompt]").forEach(button => {
+        button.addEventListener("click", () => {
+            questionInput.value = button.dataset.prompt;
+            questionInput.focus();
+        });
     });
 }

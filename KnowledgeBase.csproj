@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-    </PropertyGroup>
+      <UserSecretsId>52c5bf95-30eb-4053-83e7-376595dd7621</UserSecretsId>
+  </PropertyGroup>
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\content\zoologi\protozoa_and_coelenterates\2" />
